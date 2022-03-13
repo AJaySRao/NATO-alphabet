@@ -11,15 +11,17 @@ alphabets_dict = {row.letter: row.code for (index, row) in ph_alphabets.iterrows
 
 
 #Create a list of the phonetic code words from a word that the user inputs.
-a = True
-while a:
+def genaric_phonetic():
     user = input("Enter a word: ").upper()
     try:
         phonetic = [alphabets_dict[n] for n in user.strip()]
-        print(phonetic)
-        a = False
     except KeyError:
         print("Please enter only alphabets")
+        genaric_phonetic()
+    else:
+        print(phonetic)
+
+genaric_phonetic()
 
 
 
